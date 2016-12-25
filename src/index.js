@@ -1,8 +1,8 @@
 import { h, render } from 'preact';
-import App from './App';
-import './index.css';
+import Container from './Container';
+import './css/index.css';
 
 render(
-  <App />,
+  <Container />,
   document.getElementById('root')
 );
