@@ -15,7 +15,7 @@ export default class Container extends Component {
       display: "block"
     };
 
-    const colors = [
+    const images = [
       '#E91E63',
       '#00BCD4',
       '#FFC107',
@@ -27,8 +27,8 @@ export default class Container extends Component {
       '#FFC107'
     ];
 
-    this.Cards = colors.map((color) => {
-      return ( <Card color={color}/>  )
+    this.Cards = images.map((image) => {
+      return ( <Card value={image}/>  )
     });
   }
   render() {
