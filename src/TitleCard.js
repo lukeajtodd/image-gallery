@@ -20,7 +20,6 @@ const TitleCard = () => {
       </div>
       <nav>
         <a href="#" className="link">github</a>
-        <a href="#" className="link">flickr</a>
         <a href="#" className="link">facebook</a>
       </nav>
     </div>

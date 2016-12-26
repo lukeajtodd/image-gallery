@@ -16,7 +16,9 @@ export default class Container extends Component {
     };
 
     const images = [
-      '#E91E63',
+      'http://i.imgur.com/OjRz6wM.jpg',
+      'https://goo.gl/photos/88hXdo3YqDoxWoJC8',
+      'https://goo.gl/photos/88hXdo3YqDoxWoJC8',
       '#00BCD4',
       '#FFC107',
       '#E91E63',

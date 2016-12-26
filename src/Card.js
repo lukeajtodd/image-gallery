@@ -2,26 +2,22 @@ import {h} from 'preact';
 
 const Card = ({ value }) => {
 
-  let background = value;
-
-  console.log(background);
-
-  if (!(/^#(?:[0-9a-f]{3}){1,2}$/i).test(background)) {
-    background = `url(${background})`;
-  }
-
   const cardStyles = {
-    background: background,
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
     float: "left",
     height: 300,
     minWidth: 350,
     width: "25%"
   }
 
+  const imgStyles = {
+    width: "100%",
+    height: "100%"
+  }
+
   return (
-    <div style={cardStyles}></div>
+    <div style={cardStyles}>
+      <img style={imgStyles} src={value} role="presentation"></img>
+    </div>
   )
 }
 
