@@ -7,6 +7,8 @@ import './css/card.css';
 import Card from './Card';
 import TitleCard from './TitleCard';
 
+import CLIENT_ID from './client_id';
+
 export default class Container extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ export default class Container extends Component {
     let fetchInit = {
       method: 'GET',
       headers: {
-        'Authorization': 'Client-ID 3d93ff849ef46c8'
+        'Authorization': `Client-ID ${CLIENT_ID}`
       },
       mode: 'cors',
       cache: 'default'
