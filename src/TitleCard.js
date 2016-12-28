@@ -7,7 +7,6 @@ const TitleCard = () => {
     position: 'relative',
     background: '#fff',
     border: '2px solid #000',
-    overflow: "hidden",
     height: 250,
     minWidth: 350,
     width: "25%"

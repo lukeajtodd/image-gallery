@@ -9,3 +9,7 @@
   opacity: 0;
   position: absolute;
 }
+
+.extLink {
+  opacity: 0;
+}

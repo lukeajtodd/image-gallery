@@ -41,7 +41,7 @@ export default class Container extends Component {
         });
       }).then(function() {
         self.Cards = self.state.links.map((image, index) => {
-          return ( <Card key={index} value={image} hover={self.cardHover} leave={self.cardLeave}/>  )
+          return ( <Card key={index} image={image} hover={self.cardHover} leave={self.cardLeave}/>  )
         });
       }).then(function() {
         self.setState(self.state);
@@ -51,7 +51,10 @@ export default class Container extends Component {
   cardHover = (e) => {
     let cards = document.querySelectorAll('.card');
     cards.forEach((card) => {
-      if (card !== e.target.parentElement) {
+      if (card === e.target) {
+          card.querySelector('.extLink').style.opacity = 0.9;
+      }
+      if (card !== e.target) {
           card.querySelector('.cardOverlay').style.opacity = 0.5;
       }
     })
@@ -61,6 +64,7 @@ export default class Container extends Component {
     let cards = document.querySelectorAll('.card');
     cards.forEach((card) => {
       card.querySelector('.cardOverlay').style.opacity = 0;
+      card.querySelector('.extLink').style.opacity = 0;
     })
   }
 
