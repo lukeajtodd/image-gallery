@@ -40,7 +40,7 @@ export default class Container extends Component {
       }).then(function() {
         self.Cards = self.state.links.map((image, index) => {
           let thumb = image.split('.');
-          thumb[2] = thumb[2] + 'l';
+          thumb[2] += 'l';
           thumb = thumb.join('.');
           return (
             <Card
