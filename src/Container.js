@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import './css/container.css';
 import './css/link.css';
 import './css/nav.css';
 import './css/logo.css';
@@ -9,18 +10,13 @@ import TitleCard from './TitleCard';
 export default class Container extends Component {
   constructor(props) {
     super(props);
-
-    const self = this;
-
     this.state = {
       links: []
     }
+  }
 
-    this.styles = {
-      width: "100%",
-      margin: "0 auto",
-      display: "block"
-    };
+  componentDidMount() {
+    const self = this;
 
     let fetchInit = {
       method: 'GET',
@@ -49,7 +45,7 @@ export default class Container extends Component {
   }
 
   cardHover = (e) => {
-    let cards = document.querySelectorAll('.card');
+    let cards = document.querySelectorAll('.imageCard');
     cards.forEach((card) => {
       if (card === e.target) {
           card.querySelector('.extLink').style.opacity = 0.9;
@@ -61,7 +57,7 @@ export default class Container extends Component {
   }
 
   cardLeave = () => {
-    let cards = document.querySelectorAll('.card');
+    let cards = document.querySelectorAll('.imageCard');
     cards.forEach((card) => {
       card.querySelector('.cardOverlay').style.opacity = 0;
       card.querySelector('.extLink').style.opacity = 0;
@@ -70,7 +66,7 @@ export default class Container extends Component {
 
   render() {
     return (
-      <div className="Container" style={this.styles}>
+      <div className="container">
         <TitleCard />
         {this.Cards}
       </div>

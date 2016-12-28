@@ -2,6 +2,20 @@
   opacity: 0.1;
 }*/
 
+.card {
+  float: left;
+  height: 250px;
+  min-width: 350px;
+  overflow: hidden;
+  position: relative;
+  width: 25%;
+}
+
+.card .cardContent {
+  width: 100%;
+  height: auto;
+}
+
 .cardWrapper {
   margin: 0;
   padding: 0;

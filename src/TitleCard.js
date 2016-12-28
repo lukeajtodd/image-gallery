@@ -6,20 +6,15 @@ const TitleCard = () => {
   const borderBottomFix = "-2px";
 
   const cardStyles = {
-    float: "left",
-    position: 'relative',
     background: '#fff',
     borderTop: border,
     borderRight: border,
     borderBottom: border,
     marginBottom: borderBottomFix,
-    height: 250,
-    minWidth: 350,
-    width: "25%"
   }
 
   return (
-    <div style={cardStyles}>
+    <div style={cardStyles} className="card">
       <div className="logo__container">
         <span class="logo_L">L</span>
         <span class="logo_T">T</span>
