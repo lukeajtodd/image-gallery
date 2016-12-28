@@ -2,11 +2,17 @@ import { h } from 'preact';
 
 const TitleCard = () => {
 
+  const border = "4px solid #000";
+  const borderBottomFix = "-2px";
+
   const cardStyles = {
     float: "left",
     position: 'relative',
     background: '#fff',
-    border: '2px solid #000',
+    borderTop: border,
+    borderRight: border,
+    borderBottom: border,
+    marginBottom: borderBottomFix,
     height: 250,
     minWidth: 350,
     width: "25%"

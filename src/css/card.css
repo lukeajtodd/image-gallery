@@ -2,6 +2,15 @@
   opacity: 0.1;
 }*/
 
+.cardWrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  display: table-cell;
+}
+
 .cardOverlay {
   width: 100%;
   height: 100%;

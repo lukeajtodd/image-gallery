@@ -2,11 +2,17 @@ import {h} from 'preact';
 
 const Card = ({ image, hover, leave }) => {
 
+  const border = "4px solid #000";
+  const borderBottomFix = "-2px";
+
   const cardStyles = {
     float: "left",
     height: 250,
     minWidth: 350,
-    border: "2px solid #000",
+    borderTop: border,
+    borderRight: border,
+    borderBottom: border,
+    marginBottom: borderBottomFix,
     overflow: "hidden",
     position: "relative",
     width: "25%"
@@ -36,11 +42,13 @@ const Card = ({ image, hover, leave }) => {
 
   return (
     <div style={cardStyles} onMouseEnter={hover} onMouseLeave={leave} className="card">
-      <div className="cardOverlay"></div>
-      <img style={imgStyles} src={image} role="presentation"></img>
-      <div className="extLink" style={extStyles}>
-        <a href={image + ""}><img style={extLinkStyles} src={require('./images/ext.png')} alt="external link"></img></a>
-      </div>
+      <a href={image} className="cardWrapper">
+        <div className="cardOverlay"></div>
+        <img style={imgStyles} src={image} role="presentation"></img>
+        <div className="extLink" style={extStyles}>
+          <img style={extLinkStyles} src={require('./images/ext.png')} alt="external link"></img>
+        </div>
+      </a>
     </div>
   )
 }
