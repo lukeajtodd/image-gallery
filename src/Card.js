@@ -1,6 +1,6 @@
 import {h} from 'preact';
 
-const Card = ({ image, hover, leave }) => {
+const Card = ({ image, hover, leave, thumbnail, loaded }) => {
 
   const border = "4px solid #000";
   const borderBottomFix = "-2px";
@@ -16,7 +16,10 @@ const Card = ({ image, hover, leave }) => {
     <div style={cardStyles} onMouseEnter={hover} onMouseLeave={leave} className="card imageCard">
       <a href={image} className="cardWrapper">
         <div className="cardOverlay"></div>
-        <img className="cardContent"  src={image} role="presentation"></img>
+        <img className="cardContent" src={thumbnail} onLoad={loaded} role="presentation"></img>
+        <div className="loader">
+          <img src={require('./images/puff.svg')} alt="loader"></img>
+        </div>
         <div className="extLink">
           <img src={require('./images/ext.png')} alt="external link"></img>
         </div>

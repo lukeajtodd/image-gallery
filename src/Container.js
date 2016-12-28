@@ -39,11 +39,28 @@ export default class Container extends Component {
         });
       }).then(function() {
         self.Cards = self.state.links.map((image, index) => {
-          return ( <Card key={index} image={image} hover={self.cardHover} leave={self.cardLeave}/>  )
+          let thumb = image.split('.');
+          thumb[2] = thumb[2] + 'l';
+          thumb = thumb.join('.');
+          return (
+            <Card
+              key={index}
+              image={image}
+              thumbnail={thumb}
+              hover={self.cardHover}
+              leave={self.cardLeave}
+              loaded={self.loader}
+            />
+          )
         });
-      }).then(function() {
+      })
+      .then(function() {
         self.setState(self.state);
       });
+  }
+
+  loader = (e) => {
+    e.target.nextSibling.style.display = "none";
   }
 
   cardHover = (e) => {
