@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+/*  Lobster|Molle:400i|Yellowtail  */
 
 a {
   display: inline-block;
   text-decoration: none;
   color: #000;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Lobster", sans-serif;
   font-size: 1.8rem;
   margin: 0 10px;
   padding: 5px;
