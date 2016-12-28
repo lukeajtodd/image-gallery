@@ -9,30 +9,44 @@ export default class Container extends Component {
   constructor(props) {
     super(props);
 
+    const self = this;
+
+    this.state = {
+      links: []
+    }
+
     this.styles = {
       width: "100%",
       margin: "0 auto",
       display: "block"
     };
 
-    const images = [
-      'http://i.imgur.com/OjRz6wM.jpg',
-      'https://goo.gl/photos/88hXdo3YqDoxWoJC8',
-      'https://goo.gl/photos/88hXdo3YqDoxWoJC8',
-      '#00BCD4',
-      '#FFC107',
-      '#E91E63',
-      '#00BCD4',
-      '#FFC107',
-      '#E91E63',
-      '#00BCD4',
-      '#FFC107'
-    ];
+    let fetchInit = {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Client-ID 3d93ff849ef46c8'
+      },
+      mode: 'cors',
+      cache: 'default'
+    }
 
-    this.Cards = images.map((image) => {
-      return ( <Card value={image}/>  )
-    });
+    fetch('https://api.imgur.com/3/album/v4FhY/images', fetchInit)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(json) {
+        json.data.forEach((data) => {
+          self.state.links.push(data.link);
+        });
+      }).then(function() {
+        self.Cards = self.state.links.map((image, index) => {
+          return ( <Card key={index} value={image}/>  )
+        });
+      }).then(function() {
+        self.setState(self.state);
+      });
   }
+
   render() {
     return (
       <div className="Container" style={this.styles}>

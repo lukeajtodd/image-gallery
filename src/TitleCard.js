@@ -6,8 +6,9 @@ const TitleCard = () => {
     float: "left",
     position: 'relative',
     background: '#fff',
-    border: '1px solid #000',
-    height: 300,
+    border: '2px solid #000',
+    overflow: "hidden",
+    height: 250,
     minWidth: 350,
     width: "25%"
   }

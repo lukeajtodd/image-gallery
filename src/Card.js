@@ -4,14 +4,16 @@ const Card = ({ value }) => {
 
   const cardStyles = {
     float: "left",
-    height: 300,
+    height: 250,
     minWidth: 350,
+    border: "2px solid #000",
+    overflow: "hidden",
     width: "25%"
   }
 
   const imgStyles = {
     width: "100%",
-    height: "100%"
+    height: "auto"
   }
 
   return (
