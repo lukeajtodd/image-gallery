@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import './css/link.css';
 import './css/nav.css';
 import './css/logo.css';
+import './css/card.css';
 import Card from './Card';
 import TitleCard from './TitleCard';
 
@@ -40,11 +41,27 @@ export default class Container extends Component {
         });
       }).then(function() {
         self.Cards = self.state.links.map((image, index) => {
-          return ( <Card key={index} value={image}/>  )
+          return ( <Card key={index} value={image} hover={self.cardHover} leave={self.cardLeave}/>  )
         });
       }).then(function() {
         self.setState(self.state);
       });
+  }
+
+  cardHover = (e) => {
+    let cards = document.querySelectorAll('.card');
+    cards.forEach((card) => {
+      if (card !== e.target.parentElement) {
+          card.querySelector('.cardOverlay').style.opacity = 0.5;
+      }
+    })
+  }
+
+  cardLeave = () => {
+    let cards = document.querySelectorAll('.card');
+    cards.forEach((card) => {
+      card.querySelector('.cardOverlay').style.opacity = 0;
+    })
   }
 
   render() {
