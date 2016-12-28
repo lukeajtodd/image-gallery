@@ -11,6 +11,7 @@ a {
 }
 
 .link {
+  position: relative;
   transition: padding 0.1s, transform 0.1s;
 }
 
@@ -21,7 +22,6 @@ a {
 }
 
 .link:active {
-  background: #E91E63;
   transform: translateY(5px);
 }
 

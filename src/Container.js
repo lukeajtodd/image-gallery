@@ -20,6 +20,7 @@ export default class Container extends Component {
   componentDidMount() {
     const self = this;
 
+    // GETs imgur links
     let fetchInit = {
       method: 'GET',
       headers: {
@@ -38,25 +39,29 @@ export default class Container extends Component {
           self.state.links.push(data.link);
         });
       }).then(function() {
-        self.Cards = self.state.links.map((image, index) => {
-          let thumb = image.split('.');
-          thumb[2] += 'l';
-          thumb = thumb.join('.');
-          return (
-            <Card
-              key={index}
-              image={image}
-              thumbnail={thumb}
-              hover={self.cardHover}
-              leave={self.cardLeave}
-              loaded={self.loader}
-            />
-          )
-        });
+        self.generateCards();
       })
       .then(function() {
         self.setState(self.state);
       });
+  }
+
+  generateCards = () => {
+    this.Cards = this.state.links.map((image, index) => {
+      let thumb = image.split('.');
+      thumb[2] += 'l';
+      thumb = thumb.join('.');
+      return (
+        <Card
+          key={index}
+          image={image}
+          thumbnail={thumb}
+          hover={this.cardHover}
+          leave={this.cardLeave}
+          loaded={this.loader}
+        />
+      )
+    });
   }
 
   loader = (e) => {

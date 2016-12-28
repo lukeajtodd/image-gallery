@@ -20,8 +20,8 @@ const TitleCard = () => {
         <span class="logo_T">T</span>
       </div>
       <nav>
-        <a href="#" className="link">github</a>
-        <a href="#" className="link">facebook</a>
+        <a href="https://github.com/lukeajtodd" className="link">github</a>
+        <a href="https://www.facebook.com/omgitstoddy" className="link">facebook</a>
       </nav>
     </div>
   )
