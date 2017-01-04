@@ -1,6 +1,14 @@
 import { h } from 'preact';
 
-const Card = ({ image, hover, leave, thumbnail, loaded }) => {
+const Card = ({
+
+  image,
+  hover,
+  leave,
+  thumbnail,
+  loaded
+
+}) => {
 
   const border = "4px solid #000";
   const borderBottomFix = "-2px";
@@ -16,7 +24,7 @@ const Card = ({ image, hover, leave, thumbnail, loaded }) => {
     <div style={cardStyles} onMouseEnter={hover} onMouseLeave={leave} className="card imageCard">
       <a href={image} className="cardWrapper">
         <div className="cardOverlay"></div>
-        <img className="cardContent" src={thumbnail} onLoad={loaded} role="presentation"></img>
+        <img className="cardContent" data-src={thumbnail} onLoad={loaded} role="presentation"></img>
         <div className="loader">
           <img src={require('./images/puff.svg')} alt="loader"></img>
         </div>

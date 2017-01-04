@@ -38,12 +38,21 @@ export default class Container extends Component {
         json.data.forEach((data) => {
           self.state.links.push(data.link);
         });
-      }).then(function() {
+      })
+      .then(function() {
         self.generateCards();
       })
       .then(function() {
         self.setState(self.state);
+      })
+      .then(function() {
+        const els = document.querySelectorAll('.cardContent');
+        self.inView(els);
+        window.addEventListener('scroll', function() {
+          self.inView(els);
+        });
       });
+
   }
 
   generateCards = () => {
@@ -62,6 +71,20 @@ export default class Container extends Component {
         />
       )
     });
+  }
+
+  inView = (els) => {
+    els.forEach((el) => {
+      let rect = el.getBoundingClientRect();
+      if (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      ) {
+        el.setAttribute('src', el.getAttribute('data-src'));
+      }
+    })
   }
 
   loader = (e) => {
