@@ -9,19 +9,8 @@ const Card = ({
   loaded
 
 }) => {
-
-  const border = "4px solid #000";
-  const borderBottomFix = "-2px";
-
-  const cardStyles = {
-    borderTop: border,
-    borderRight: border,
-    borderBottom: border,
-    marginBottom: borderBottomFix,
-  }
-
   return (
-    <div style={cardStyles} onMouseEnter={hover} onMouseLeave={leave} className="card imageCard">
+    <div onMouseEnter={hover} onMouseLeave={leave} className="card imageCard">
       <a href={image} className="cardWrapper">
         <div className="cardOverlay"></div>
         <img className="cardContent" data-src={thumbnail} onLoad={loaded} role="presentation"></img>
